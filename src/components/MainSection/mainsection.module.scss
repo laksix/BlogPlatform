@@ -1,0 +1,19 @@
+.main {
+    width: 960px ;
+    height: 1350px;
+    background-color: #F3F7FA;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: column;
+}
+.logo {
+    padding-top: 29px;
+    padding-bottom: 31px;
+}
+.main-menu {
+    display: flex;
+    flex-direction: row;
+    gap: 21px;
+}
