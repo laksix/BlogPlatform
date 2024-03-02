@@ -1,24 +1,27 @@
-import React, {useState} from 'react'
+
 import clasess from './aside.module.scss'
 import { Checkbox} from 'antd';
-import { CheckboxProps, GetProp, ConfigProvider } from 'antd';
+import { ConfigProvider } from 'antd';
+import { AsideFilterSlice } from '../store/reducers/AsideFilter';
+import { useAppDispatch, useAppSelector} from '../hooks/redux';
 
 const Aside = () => {
-    type CheckboxValueType = GetProp<typeof Checkbox.Group, 'value'>[number];
+    const {setCurrentFilters} = AsideFilterSlice.actions
+    const {setFiltersAll} = AsideFilterSlice.actions
+    const dispatch = useAppDispatch()
     const CheckboxGroup = Checkbox.Group;
-    const plainOptions = ['Без пересадок', '1 пересадка', '2 пересадки','3 пересадки'];
-    const defaultCheckedList = ['Без пересадок', '1 пересадка', '2 пересадки'];
-    const [checkedList, setCheckedList] = useState<CheckboxValueType[]>(defaultCheckedList);
-
+    const plainOptions = useAppSelector(state => state.AsideFilter.plainOptions);
+   
+    const checkedList = useAppSelector(state => state.AsideFilter.currentFilters)
     const checkAll = plainOptions.length === checkedList.length;
     const indeterminate = checkedList.length > 0 && checkedList.length < plainOptions.length;
   
-    const onChange = (list: CheckboxValueType[]) => {
-      setCheckedList(list);
+    const onChange = (list) => {
+      dispatch(setCurrentFilters(list))
     };
   
-    const onCheckAllChange: CheckboxProps['onChange'] = (e) => {
-      setCheckedList(e.target.checked ? plainOptions : []);
+    const onCheckAllChange = (e) => {
+      dispatch(setFiltersAll(e.target.checked))
     };
     return (
     <div className={clasess['aside-menu']}>

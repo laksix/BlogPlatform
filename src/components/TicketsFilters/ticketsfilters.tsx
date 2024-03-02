@@ -1,20 +1,30 @@
-import React, { useState } from 'react';
+
 import { RadioChangeEvent, ConfigProvider } from 'antd';
 import { Radio } from 'antd';
-import clasess from './ticketsfilters.module.scss'
+import clasess from './ticketsfilters.module.scss';
+import { useAppDispatch, useAppSelector } from '../hooks/redux';
+
+
+import {FilterSlice} from '../store/reducers/FilterSlice';
+
 
   const TicketsFilters = () => {
 
 const optionsWithDisabled = [
-  { label: "САМЫЙ ДЕШЕВЫЙ", value: "free", disabled: false },
-  { label: "САМЫЙ БЫСТРЫЙ", value: "fast", disabled: false },
-  { label: "ОПТИМАЛЬНЫЙ", value: "optical", disabled: false },
+  { label: "САМЫЙ ДЕШЕВЫЙ", value: "free"},
+  { label: "САМЫЙ БЫСТРЫЙ", value: "fast"},
+  { label: "ОПТИМАЛЬНЫЙ", value: "optical"},
 ];
-  const [value4, setValue4] = useState("free");
-  const onChange4 = ({ target: { value } }: RadioChangeEvent) => {
-    console.log("radio4 checked", value);
-    setValue4(value);
+
+const currentFilter = useAppSelector(state => state.filterReducer.filter)
+const {switchFilter} = FilterSlice.actions
+const dispatch = useAppDispatch()
+
+  const onChangePrice = ({ target: { value } }: RadioChangeEvent) => {
+    dispatch(switchFilter(value))
   };
+  
+
     
     return (
     <>
@@ -34,8 +44,8 @@ const optionsWithDisabled = [
 <Radio.Group
       className={clasess['ticketsFilter-text']}
         options={optionsWithDisabled}
-        onChange={onChange4}
-        value={value4}
+        onChange={onChangePrice}
+        value={currentFilter}
         optionType="button"
         buttonStyle="solid"
         size='large'
