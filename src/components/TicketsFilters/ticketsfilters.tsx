@@ -28,7 +28,7 @@ const TicketsFilters = () => {
       setFontSize(11)
     }
     if (document.body.clientWidth < 718){
-      setSize(15)
+      setSize(13)
       setFontSize(9)
     }
   }
@@ -38,7 +38,7 @@ const TicketsFilters = () => {
       setFontSize(11)
     }
     if (document.body.clientWidth < 718){
-      setSize(15)
+      setSize(13)
       setFontSize(9)
     }
   }
@@ -52,6 +52,7 @@ const TicketsFilters = () => {
             Radio: {
               fontSizeLG: fontSize,
               buttonPaddingInline: size,
+
             },
           },
           token: {
@@ -60,6 +61,7 @@ const TicketsFilters = () => {
         }}
       >
         <Radio.Group
+          style={{whiteSpace:'nowrap'}}
           className={clasess['ticketsFilter-text']}
           options={optionsWithDisabled}
           onChange={onChangePrice}
