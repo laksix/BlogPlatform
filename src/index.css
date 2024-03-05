@@ -1,11 +1,12 @@
-@import "@fontsource/open-sans";
+@import '@fontsource/open-sans';
 
 body {
-    font-family: "Open Sans";
-  }
+  font-family: 'Open Sans';
+  overflow-x: hidden;
+}
 
 .root {
-    width: 100%;
-    height: 100%;
-    background-color: #F3F7FA;
+  width: auto;
+  height: auto;
+  background-color: #f3f7fa;
 }

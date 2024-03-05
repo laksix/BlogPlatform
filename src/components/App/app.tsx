@@ -1,16 +1,1 @@
-import React from "react";
-import MainSection from "../MainSection";
-import { Provider } from 'react-redux';
-import { setupStore } from "../store/store";
-
-
-const App = () => {
-  
-const store = setupStore()
-    return (
-      <Provider store = {store}>
-      <MainSection/>
-      </Provider>
-    )
-}
-export default App
+import React, { useEffect } from 'react';import MainSection from '../MainSection';import { useAppDispatch } from '../hooks/redux';import { createID } from '../store/reducers/ActionCreators';const App = () => {  const fetchTicketID = async () => {    await dispatch(createID());  };  const dispatch = useAppDispatch();  useEffect(() => {    fetchTicketID();  }, []);  return <MainSection />;};export default App;

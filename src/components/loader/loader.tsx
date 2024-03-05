@@ -1,0 +1,1 @@
+import clasess from './loader.module.scss';const Loader = () => {  return (    <div className={clasess['loadingio-spinner-pulse-wm6f9a25q0n']}>      <div className={clasess['ldio-em0pieutfg5']}>        <div></div>        <div></div>        <div></div>      </div>    </div>  );};export default Loader;

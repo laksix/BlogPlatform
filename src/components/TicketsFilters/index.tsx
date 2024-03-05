@@ -1,2 +1,1 @@
-import TicketsFilters from "./ticketsfilters";
-export default TicketsFilters
+import TicketsFilters from './ticketsfilters';export default TicketsFilters;

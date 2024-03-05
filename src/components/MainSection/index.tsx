@@ -1,2 +1,1 @@
-import MainSection from "./mainsection";
-export default MainSection
+import MainSection from './mainsection';export default MainSection;

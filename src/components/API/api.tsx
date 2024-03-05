@@ -1,0 +1,1 @@
+export const getID = 'https://aviasales-test-api.kata.academy/search';
