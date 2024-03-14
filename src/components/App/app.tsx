@@ -1,1 +1,7 @@
-import React, { useEffect } from 'react';import MainSection from '../MainSection';import { useAppDispatch } from '../hooks/redux';import { createID } from '../store/reducers/ActionCreators';const App = () => {  const fetchTicketID = async () => {    await dispatch(createID());  };  const dispatch = useAppDispatch();  useEffect(() => {    fetchTicketID();  }, []);  return <MainSection />;};export default App;
+
+import Section from '../Section/section';
+const App = () => {
+  return <Section/>
+};
+
+export default App;

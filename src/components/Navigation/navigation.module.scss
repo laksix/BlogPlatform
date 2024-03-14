@@ -1,0 +1,53 @@
+.title{
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  height: 80px;
+  background-color: #FFFFFF;
+  align-items: center;
+}
+.title-name {
+  margin-right: auto;
+  padding-left: 22px;
+  font-size: 18px;
+  line-height: 28px;
+  transition: transform 0.2s linear;
+  color: #000000;
+  text-decoration: none;
+}
+.title-name:hover{
+    cursor: pointer;
+    text-decoration: underline;
+  transition: all 0.2s linear;
+}
+.auth{
+ display: flex;
+ flex-direction: row;
+ padding-right: 22px;
+ gap: 25px;
+}
+.authOn{
+  font-size: 18px;
+  color: #52C41A;
+  border: 1px solid #52C41A;
+  padding: 8px;
+  transition: all 0.2s linear;
+}
+.authOn:hover{
+  background-color: #52C41A;
+  color: #FFFFFF;
+  transition: all 0.2s linear;
+  cursor: pointer;
+}
+
+.authOff{
+ font-size: 18px;
+ padding: 8px;
+ transition: transform 0.2s linear;
+}
+.authOff:hover{
+    cursor: pointer;
+  text-decoration: underline;
+  transition: all 0.2s linear;
+
+}

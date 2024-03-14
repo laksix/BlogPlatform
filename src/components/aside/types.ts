@@ -1,1 +1,0 @@
-export enum AsideFilterItems {  NullTranstion = 'Без пересадок',  OneTransition = '1 пересадка',  SecondTransition = '2 пересадки',  ThreeTransition = '3 пересадки',}

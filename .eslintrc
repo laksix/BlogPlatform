@@ -21,6 +21,6 @@
     },
     "env": {
       "browser": true,
-      "es2022": true
+      "es6": true
     }
   }

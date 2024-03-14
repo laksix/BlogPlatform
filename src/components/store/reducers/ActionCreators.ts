@@ -1,1 +1,25 @@
-import axios from 'axios';import { AppDispatch } from '../store';import { TicketsSlice } from './TIcketsSlice';import { ITickets } from '../../models/Tickets';export const createID = () => async (dispatch: AppDispatch) => {  try {    dispatch(TicketsSlice.actions.ticketsStartFetch());    const responseID = await axios.get(`https://aviasales-test-api.kata.academy/search`);    const ID = responseID.data.searchId;    dispatch(TicketsSlice.actions.ticketsFetching(ID));  } catch (e) {    return null;  }};export const fetchTickets = (id) => async (dispatch: AppDispatch) => {  try {    const response = await axios.get<ITickets>(`https://aviasales-test-api.kata.academy/tickets?searchId=${id}`);    if (!response.data.stop) {      dispatch(TicketsSlice.actions.ticketsFetchingSuccess(response.data.tickets));    } else dispatch(TicketsSlice.actions.ticketsStopFetch());  } catch (e: any) {    dispatch(TicketsSlice.actions.ticketsFetchingError(e.status));  }};
+import axios from 'axios';
+import { AppDispatch } from '../store';
+import { ISlugs, ICurrentSlug } from '../../models/Slug';
+import {AritcleSlice} from './AritcleSlice';
+export const fetchArticles= () => async (dispatch: AppDispatch) => {
+  try {
+    dispatch(AritcleSlice.actions.articleStartFetch())
+    const response = await axios.get<ISlugs>(`https://blog.kata.academy/api/articles?limit=5?page=1`);
+    dispatch(AritcleSlice.actions.articleSetTotalPages(response.data.articlesCount))
+    dispatch(AritcleSlice.actions.articleFetchSuccess(response.data.articles))
+  } catch (e: any) {
+    dispatch(AritcleSlice.actions.articleFetchError(e.message))
+  }
+};
+
+export const currentArticleFetch = (slug) => async(dispatch : AppDispatch) => {
+  try{
+    dispatch(AritcleSlice.actions.articleStartFetch())
+   const response = await axios.get<ICurrentSlug>(`https://blog.kata.academy/api/articles/${slug}`);
+   dispatch(AritcleSlice.actions.currentArticleFetch(response.data.article))
+  }
+  catch(e: any){
+    dispatch(AritcleSlice.actions.articleFetchError(e.message))
+  }
+}
