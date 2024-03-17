@@ -1,0 +1,94 @@
+.mainBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 384px;
+    height: auto;
+    gap: 21px;
+    box-shadow: 0px 4px 12px 0px #00000026;
+    background-color: #FFFFFF;
+    padding-right: 12px;
+}
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 59px;
+}
+.title {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 28px;
+    color:#262626;
+    padding-top:48px
+}
+.mainBox-inputs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-left: 64px;
+}
+.inputName {
+    font-size: 14px;
+    line-height: 22px;
+    color:#262626;
+    font-weight: 400;
+}
+.currentInput {
+    display: flex;
+    flex-direction: column;
+}
+.inputSet {
+    width: 320px;
+    height: 40px;
+    border: 1px solid #D9D9D9;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    padding-left: 10px;
+}
+.inputError {
+    color: red;
+    font-size: 10px;
+    margin-top:2px
+}
+.currentCheckBox {
+    display: flex;
+    flex-direction: row;
+    margin-top:5px;
+    gap:1px;
+    width:384px;
+}
+.currentCheckBox {
+    font-size: 12.5px;
+    line-height: 22px;
+    font-weight: 400;
+}
+.quation {
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    color:#262626;
+}
+.linkUp {
+    text-decoration: none;
+    color: #1890FF;
+}
+.inputForm {
+    width: 20px;
+    align-items: center;
+}
+.submitForm {
+    background-color: #1890FF;
+    border-width: 0;
+    color:#FFFFFF;
+    width: 319px;
+    height: 40px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+.submitForm:hover{
+    cursor: pointer;
+    transform: scale(1.03);
+}
