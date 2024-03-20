@@ -1,118 +1,1 @@
-.title{
-  display: flex;
-  flex-direction: row;
-  width: auto;
-  height: 80px;
-  background-color: #FFFFFF;
-  align-items: center;
-}
-.title-name {
-  margin-right: auto;
-  padding-left: 22px;
-  font-size: 18px;
-  line-height: 28px;
-  transition: transform 0.2s linear;
-  color: #000000;
-  text-decoration: none;
-}
-.title-name:hover{
-    cursor: pointer;
-    text-decoration: underline;
-  transition: all 0.2s linear;
-}
-.auth{
- display: flex;
- flex-direction: row;
- padding-right: 22px;
- gap: 25px;
-}
-.authOn{
-  font-size: 18px;
-  color: #52C41A;
-  border: 1px solid #52C41A;
-  padding: 8px;
-  transition: all 0.2s linear;
-}
-.authOn:hover{
-  background-color: #52C41A;
-  color: #FFFFFF;
-  transition: all 0.2s linear;
-  cursor: pointer;
-}
-
-.authOff{
- font-size: 18px;
- padding: 8px;
- transition: transform 0.2s linear;
-}
-.authOff:hover{
-    cursor: pointer;
-  text-decoration: underline;
-  transition: all 0.2s linear;
-
-}
-.title-signUp {
-  text-decoration: none;
-}
-.authIn {
-  color:#000000;
-  text-decoration: none;
-}
-.isAuth {
-  display: flex;
-  flex-direction: row;
-  gap:15px;
-  align-items: center;
-  margin-right: 10px;
-}
-.createPost {
-  border: 1px solid #52C41A;
-  color:#52C41A;
-  padding: 10px 6px 10px 6px;
-  border-radius: 5px;
-  text-decoration: none;
-}
-.createPost:hover{
-  background-color: #52C41A;
-  color: #FFFFFF;
-  cursor: pointer;
-}
-.profile {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-  color:#000000
-}
-.profileName {
-  font-size: 18px;
-  line-height: 28px;
-}
-.profileImg {
-  width: 46px;
-  height: 46px;
-  border-radius: 5px;
-}
-.profile:hover {
- cursor: pointer;
- text-decoration: underline;
-}
-.logout {
-  border: 1px solid #000000BF;
-  padding: 10px 10px 10px 10px;
-  color:#000000;
-  border-radius: 5px;
-  font-size: 18px;
-  line-height: 28px;
-}
-.logout:hover {
-  cursor: pointer;
-}
-.createPostText {
-  text-decoration: none;
-  color: #52C41A
-}
-.createPostText:hover{
-  color: #FFFFFF
-}
+.title {  display: flex;  flex-direction: row;  width: auto;  height: 80px;  background-color: #ffffff;  align-items: center;}.title-name {  margin-right: auto;  padding-left: 22px;  font-size: 18px;  line-height: 28px;  transition: transform 0.2s linear;  color: #000000;  text-decoration: none;}.title-name:hover {  cursor: pointer;  text-decoration: underline;  transition: all 0.2s linear;}.auth {  display: flex;  flex-direction: row;  padding-right: 22px;  gap: 25px;}.authOn {  font-size: 18px;  color: #52c41a;  border: 1px solid #52c41a;  padding: 8px;  transition: all 0.2s linear;}.authOn:hover {  background-color: #52c41a;  color: #ffffff;  transition: all 0.2s linear;  cursor: pointer;}.authOff {  font-size: 18px;  padding: 8px;  transition: transform 0.2s linear;}.authOff:hover {  cursor: pointer;  text-decoration: underline;  transition: all 0.2s linear;}.title-signUp {  text-decoration: none;}.authIn {  color: #000000;  text-decoration: none;}.isAuth {  display: flex;  flex-direction: row;  gap: 15px;  align-items: center;  margin-right: 10px;}.createPost {  border: 1px solid #52c41a;  color: #52c41a;  padding: 10px 6px 10px 6px;  border-radius: 5px;  text-decoration: none;}.createPost:hover {  background-color: #52c41a;  color: #ffffff;  cursor: pointer;}.profile {  display: flex;  flex-direction: row;  align-items: center;  gap: 10px;  text-decoration: none;  color: #000000;}.profileName {  font-size: 18px;  line-height: 28px;}.profileImg {  width: 46px;  height: 46px;  border-radius: 5px;}.profile:hover {  cursor: pointer;  text-decoration: underline;}.logout {  border: 1px solid #000000bf;  padding: 10px 10px 10px 10px;  color: #000000;  border-radius: 5px;  font-size: 18px;  line-height: 28px;}.logout:hover {  cursor: pointer;}.createPostText {  text-decoration: none;  color: #52c41a;}.createPostText:hover {  color: #ffffff;}

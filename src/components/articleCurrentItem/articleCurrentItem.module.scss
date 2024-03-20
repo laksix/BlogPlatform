@@ -1,169 +1,1 @@
-.slugBox {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-}
-.slugBox-contanier {
-    background-color: #FFFFFF;
-    width: 941px;
-    height: auto;
-    margin-top: 24px;
-}
-.articleItem {
-    width: 938px;
-    height: 140px;
-    background-color: #FFFFFF;
-    text-decoration: none;
-    list-style-type: none;
-    box-shadow: 0px 4px 12px 0px #00000026;
-    position: relative;
-
-}
-.slugInfo {
-    display: flex;
-    flex-direction: column;
-    margin-top: 15px;
-    margin-left: 16px;
-    gap: 4px;
-    padding-right: 250px;
-    position: relative;
-}
-.slugName {
-    font-size: 20px;
-    line-height: 28px;
-    color: #1890FF;
-    text-decoration: none;
-}
-.slugName:hover{
-    text-decoration: underline;
-    text-decoration-color:#1890FF;
-    cursor: pointer;
-}
-.slugTitle {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-}
-.slugTags-list {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    display: flex;
-    flex-direction: row;
-    gap: 5px;
-}
-.slugTags-item {
-    list-style-type: none;
-    width: auto;
-    height: 20px;
-    border: 1px solid #00000080;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.slugTags-text {
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 14.52px;
-    color: #000000BF;
-    padding: 3px;
-}
-.slugItem-text {
-    font-size: 12px;
-    line-height: 22px;
-    color: #000000BF;
-
-}
-.slugLikes {
-    display: flex;
-    flex-direction: row;
-    gap: 3px;
-    align-items: center;
-    justify-self: center;
-    cursor: pointer;
-    transform: scale(0.9);
-    object-fit: cover;
-}
-.slugLikes-count {
-    
-    font-size: 12px;
-    line-height: 22px;
-    color: #000000BF;
-
-}
-.slugUser {
-    position: absolute;
-    width: 141px;
-    height: 46px;
-    display: flex;
-    flex-direction: column;
-    top: 40px;
-    right: 300px;
-}
-.userIMG {
-    width: 46px;
-    height: 46px;
-    position: absolute;
-    right: -13px;
-}
-.userName {
-    font-size: 18px;
-    line-height: 28px;
-    color:#000000D9;
-}
-.slugDate {
-  font-size: 12px;
-  line-height: 22px;
-  color:#00000080;
-  
-}
-.imgLikes {
-    width: 16px;
-    height: 16px;
-}
-.mainText {
-    margin-left:15px
-}
-.buttonsEdit {
-    display: flex;
-    flex-direction: row;
-    margin-top: 20px;
-    gap: 20px;
-    
-}
-.buttonDelete {
-    border: 1px solid #F5222D;
-    padding: 10px;
-    color: #F5222D;
-    cursor: pointer;
-
-}
-.buttonDelete:hover{
-    color:#FFFFFF;
-    background-color: #F5222D;
-}
-.buttonEdit {
-    border: 1px solid #52C41A;
-    padding: 5px 10px 5px 10px;
-    color: #52C41A;
-    cursor: pointer;
-    border-radius: 5px;
-    text-decoration: none;
-    text-decoration-color: #FFFFFF;
-}
-.buttonEdit:hover{
-    background-color: #52C41A;
-    color:#FFFFFF
-}
-.buttonEditText {
-    text-decoration: none;
-    color: #FFFFFF;
-}
-.alertMessage {
-    position: absolute;
-    right: 5px;
-    top:25px;
-    width: 250px;
-
-}
+.slugBox {  display: flex;  flex-direction: column;  align-items: center;  position: relative;}.slugBox-contanier {  background-color: #ffffff;  width: 941px;  height: auto;  margin-top: 24px;}.articleItem {  width: 938px;  height: 140px;  background-color: #ffffff;  text-decoration: none;  list-style-type: none;  box-shadow: 0px 4px 12px 0px #00000026;  position: relative;}.slugInfo {  display: flex;  flex-direction: column;  margin-top: 15px;  margin-left: 16px;  gap: 4px;  padding-right: 250px;  position: relative;}.slugName {  font-size: 20px;  line-height: 28px;  color: #1890ff;  text-decoration: none;}.slugName:hover {  text-decoration: underline;  text-decoration-color: #1890ff;  cursor: pointer;}.slugTitle {  display: flex;  flex-direction: row;  gap: 10px;}.slugTags-list {  margin: 0;  padding: 0;  list-style-type: none;  display: flex;  flex-direction: row;  gap: 5px;}.slugTags-item {  list-style-type: none;  width: auto;  height: 20px;  border: 1px solid #00000080;  display: flex;  align-items: center;  justify-content: center;}.slugTags-text {  font-weight: 400;  font-size: 12px;  line-height: 14.52px;  color: #000000bf;  padding: 3px;}.slugItem-text {  font-size: 12px;  line-height: 22px;  color: #000000bf;}.slugLikes {  display: flex;  flex-direction: row;  gap: 3px;  align-items: center;  justify-self: center;  cursor: pointer;  transform: scale(0.9);  object-fit: cover;}.slugLikes-count {  font-size: 12px;  line-height: 22px;  color: #000000bf;}.slugUser {  position: absolute;  width: 141px;  height: 46px;  display: flex;  flex-direction: column;  top: 40px;  right: 300px;}.userIMG {  width: 46px;  height: 46px;  position: absolute;  right: -13px;}.userName {  font-size: 18px;  line-height: 28px;  color: #000000d9;}.slugDate {  font-size: 12px;  line-height: 22px;  color: #00000080;}.imgLikes {  width: 16px;  height: 16px;}.mainText {  margin-left: 15px;}.buttonsEdit {  display: flex;  flex-direction: row;  margin-top: 20px;  gap: 20px;}.buttonDelete {  border: 1px solid #f5222d;  padding: 10px;  color: #f5222d;  cursor: pointer;}.buttonDelete:hover {  color: #ffffff;  background-color: #f5222d;}.buttonEdit {  border: 1px solid #52c41a;  padding: 5px 10px 5px 10px;  color: #52c41a;  cursor: pointer;  border-radius: 5px;  text-decoration: none;  text-decoration-color: #ffffff;}.buttonEdit:hover {  background-color: #52c41a;  color: #ffffff;}.buttonEditText {  text-decoration: none;  color: #ffffff;}.alertMessage {  position: absolute;  right: 5px;  top: 25px;  width: 250px;}
