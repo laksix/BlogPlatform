@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { ISlug } from '../../models/Slug';
+import { ISlug, LikeSlug } from '../../models/Slug';
 import { PayloadAction } from '@reduxjs/toolkit';
 
 
@@ -14,12 +14,14 @@ export interface IinitialState {
   createFinal : boolean,
   owner : boolean
   statusDelete: boolean
-  articleEditStatus: boolean
+  articleEditStatus: boolean,
+  errorLike: boolean
 
 }
 
 const initialState: IinitialState = {
   articles: [],
+  errorLike: false,
   articleEditStatus: false,
   statusDelete: false,
   loading:true,
@@ -38,6 +40,7 @@ const initialState: IinitialState = {
     createdAt: '',
     updatedAt: '',
     favorited: false,
+    favoritesCount: 0,
     author: {
       username: '',
       bio: '',
@@ -100,6 +103,32 @@ export const AritcleSlice = createSlice({
     },
     unEditStatus(state) {
       state.articleEditStatus = false
+    },
+    changePost(state, action: PayloadAction<LikeSlug>){
+     state.currentArticle.favorited = true;
+     state.articles.map(e => {
+      if (e.slug === action.payload.article.slug){
+        e.favorited = true
+        e.favoritesCount = action.payload.article.favoritesCount
+        state.currentArticle.favoritesCount = action.payload.article.favoritesCount
+      } 
+     })
+    },
+    errorLike(state){
+      state.errorLike = true
+    },
+    unErrorLike(state) {
+      state.errorLike = false
+    },
+    changePostUn(state,action: PayloadAction<LikeSlug>){
+      state.currentArticle.favorited = false
+      state.articles.map(e => {
+        if (e.slug === action.payload.article.slug){
+          e.favorited = false;
+          e.favoritesCount = action.payload.article.favoritesCount
+          state.currentArticle.favoritesCount = action.payload.article.favoritesCount
+        } 
+      })
     }
 
   },

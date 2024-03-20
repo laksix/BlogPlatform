@@ -67,7 +67,11 @@
     flex-direction: row;
     gap: 3px;
     align-items: center;
-    justify-self: center
+    justify-self: center;
+    transform: scale(0.9);
+}
+.slugLikes:hover{
+    cursor: pointer;
 }
 .slugLikes-count {
     
@@ -105,4 +109,5 @@
 .imgLikes {
     width: 16px;
     height: 16px;
+    object-fit: cover
 }

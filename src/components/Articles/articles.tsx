@@ -13,10 +13,11 @@ const Articles = () => {
     const statusLoad = useAppSelector(state => state.Aritcles.loading)
     const currentPage = useAppSelector(state=> state.Aritcles.currentPage)
     const allPosts = useAppSelector(state => state.Aritcles.articles)
+    const token = useAppSelector(state => state.UserSlice.currentUser.token)
     const dispatch = useAppDispatch()
     const [currentList,setCurrentList] = useState(0)
     useEffect(() => {
-      dispatch(fetchArticles())
+      dispatch(fetchArticles(token))
       setCurrentList(5)
     },[])
     useEffect(() => {
@@ -28,6 +29,7 @@ const Articles = () => {
    const statusCreateArticle = useAppSelector(state => state.Aritcles.createFinal)
    const statusDeleteArticle = useAppSelector(state => state.Aritcles.statusDelete)
    const statusEditArticle = useAppSelector(state => state.Aritcles.articleEditStatus)
+   const errorLikeStatus = useAppSelector(state => state.Aritcles.errorLike)
     return (
       <>
        <div className={clasess.box}>
@@ -50,6 +52,13 @@ const Articles = () => {
       message="Редактирование поста"
       description="Пост успешно изменен."
       type="success"
+      showIcon
+    /> : null}
+    {errorLikeStatus ? <Alert
+          className={clasess.alertMessage}
+      message="Лайк поста"
+      description="Авторизуйтесь, чтобы оставлять лайки."
+      type="error"
       showIcon
     /> : null}
     </div>

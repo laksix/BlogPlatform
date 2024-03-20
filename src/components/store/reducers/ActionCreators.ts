@@ -1,15 +1,20 @@
 import axios from 'axios';
 import { AppDispatch } from '../store';
-import { ISlugs, ICurrentSlug} from '../../models/Slug';
+import { ISlugs, ICurrentSlug, LikeSlug} from '../../models/Slug';
 import {AritcleSlice} from './AritcleSlice';
 import { IFormInput} from '../../createNewUser/createNewUser';
 import {CurrentUser} from '../../models/User'
 import {UserSlice} from './UserSlice';
+import {LikesArticles} from './LikesArticle';
 
-export const fetchArticles= () => async (dispatch: AppDispatch) => {
+export const fetchArticles= (token) => async (dispatch: AppDispatch) => {
   try {
     dispatch(AritcleSlice.actions.articleStartFetch())
-    const response = await axios.get<ISlugs>(`https://blog.kata.academy/api/articles?limit=5?page=1`);
+    const response = await axios.get<ISlugs>(`https://blog.kata.academy/api/articles?limit=5?page=1`,{
+      headers: {
+        Authorization: `Token ${token}`
+      }
+    });
     dispatch(AritcleSlice.actions.articleSetTotalPages(response.data.articlesCount))
     dispatch(AritcleSlice.actions.articleFetchSuccess(response.data.articles))
   } catch (e: any) {
@@ -17,10 +22,14 @@ export const fetchArticles= () => async (dispatch: AppDispatch) => {
   }
 };
 
-export const currentArticleFetch = (slug) => async(dispatch : AppDispatch) => {
+export const currentArticleFetch = (slug,token) => async(dispatch : AppDispatch) => {
   try{
     dispatch(AritcleSlice.actions.articleStartFetch())
-   const response = await axios.get<ICurrentSlug>(`https://blog.kata.academy/api/articles/${slug}`);
+   const response = await axios.get<ICurrentSlug>(`https://blog.kata.academy/api/articles/${slug}`,{
+    headers: {
+      Authorization: `Token ${token}`
+    }
+   });
    dispatch(AritcleSlice.actions.currentArticleFetch(response.data.article))
   }
   catch(e: any){
@@ -44,7 +53,7 @@ export const createNewUser = (data: IFormInput) => async (dispatch: AppDispatch)
         }
     },
     };
-    const response = await axios.post<CurrentUser>('https://blog.kata.academy/api/users',options)
+    const response = await axios.post<CurrentUser>('https://blog.kata.academy/api/users',options.body)
     dispatch(UserSlice.actions.fetchUserComplete(response.data))
   }
   catch(e: any) {
@@ -181,6 +190,49 @@ export const EditCurrentArticle = (data: IFormInput, slug : string,tags : string
   setTimeout(() => {
     dispatch(AritcleSlice.actions.unEditStatus())
   },2000)
+  }
+  catch (e:any) {
+   console.log(e)
+  }
+}
+
+
+export const LikeCurrentArticle = (currentSlug: string, currentToken: string) => async (dispatch: AppDispatch) => {
+  try {
+    const options = {
+      method: 'POST',
+      headers: {
+        Authorization: `Token ${currentToken}`,
+        accept: 'application/json',
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+  }
+  
+  const response = await axios.post<LikeSlug>(`https://blog.kata.academy/api/articles/${currentSlug}/favorite`,options,options);
+  dispatch(LikesArticles.actions.LikeCurrentArticle(response.data))
+  dispatch(AritcleSlice.actions.changePost(response.data))
+  }
+  catch {
+   dispatch(AritcleSlice.actions.errorLike())
+   setTimeout(() => {
+    dispatch(AritcleSlice.actions.unErrorLike())
+  },2000)
+  }
+}
+export const UnLikeCurrentArticle = (currentSlug: string, currentToken: string) => async (dispatch: AppDispatch) => {
+  try {
+    const options = {
+      method: 'DELETE',
+      headers: {
+        Authorization: `Token ${currentToken}`,
+        accept: 'application/json',
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+  }
+  
+  const response = await axios.delete<LikeSlug>(`https://blog.kata.academy/api/articles/${currentSlug}/favorite`,options);
+  dispatch(LikesArticles.actions.unLikeCurrentArticle(response.data))
+  dispatch(AritcleSlice.actions.changePostUn(response.data))
   }
   catch (e:any) {
    console.log(e)

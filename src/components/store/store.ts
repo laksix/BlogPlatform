@@ -2,9 +2,11 @@ import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
 import Aritcles from './reducers/AritcleSlice';
 import UserSlice from './reducers/UserSlice';
+import LikesArticle from './reducers/LikesArticle';
 const rootReducer = combineReducers({
   Aritcles,
-  UserSlice
+  UserSlice,
+  LikesArticle,
 });
 
 export const setupStore = () => {

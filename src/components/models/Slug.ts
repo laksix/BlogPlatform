@@ -5,7 +5,22 @@ export interface ISlugs {
 export interface ICurrentSlug{
   article: ISlug
 }
+export interface LikeSlug {
+  article: CurrentSlug
+}
 
+export interface CurrentSlug {
+  slug: string;
+  title:string;
+  description:string;
+  body:string;
+  tagList: string[];
+  createdAt: string;
+  updatedAt: string;
+  favorited: boolean;
+  favoritesCount : number,
+  author: IAuthor;
+}
 export interface ISlug {
   slug: string;
   title:string;
@@ -15,6 +30,7 @@ export interface ISlug {
   createdAt: string;
   updatedAt: string;
   favorited: boolean;
+  favoritesCount : number,
   author: IAuthor;
 }
 export interface IAuthor {

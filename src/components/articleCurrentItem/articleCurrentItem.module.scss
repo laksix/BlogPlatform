@@ -80,7 +80,10 @@
     flex-direction: row;
     gap: 3px;
     align-items: center;
-    justify-self: center
+    justify-self: center;
+    cursor: pointer;
+    transform: scale(0.9);
+    object-fit: cover;
 }
 .slugLikes-count {
     
@@ -156,4 +159,11 @@
 .buttonEditText {
     text-decoration: none;
     color: #FFFFFF;
+}
+.alertMessage {
+    position: absolute;
+    right: 5px;
+    top:25px;
+    width: 250px;
+
 }
