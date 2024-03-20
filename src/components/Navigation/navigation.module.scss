@@ -70,6 +70,7 @@
   color:#52C41A;
   padding: 10px 6px 10px 6px;
   border-radius: 5px;
+  text-decoration: none;
 }
 .createPost:hover{
   background-color: #52C41A;
@@ -107,4 +108,11 @@
 }
 .logout:hover {
   cursor: pointer;
+}
+.createPostText {
+  text-decoration: none;
+  color: #52C41A
+}
+.createPostText:hover{
+  color: #FFFFFF
 }

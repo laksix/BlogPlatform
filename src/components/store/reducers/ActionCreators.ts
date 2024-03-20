@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { AppDispatch } from '../store';
-import { ISlugs, ICurrentSlug } from '../../models/Slug';
+import { ISlugs, ICurrentSlug} from '../../models/Slug';
 import {AritcleSlice} from './AritcleSlice';
 import { IFormInput} from '../../createNewUser/createNewUser';
 import {CurrentUser} from '../../models/User'
@@ -94,11 +94,95 @@ export const updateUser = (data: IFormInput,currentToken: string) => async(dispa
   };
     const response = await axios.put<CurrentUser>('https://blog.kata.academy/api/user',options.body,options)
     dispatch(UserSlice.actions.fetchUserComplete(response.data))
+    dispatch(UserSlice.actions.userEditComplete())
+    setTimeout(() => {
+      dispatch(UserSlice.actions.userEditClose())
+    },2000)
   }
   catch(e: any){
     dispatch(UserSlice.actions.fetchUserError(e.response.data))
   }
-    
+
+}
+
+
+
+export const createArticle = (data: IFormInput,tags : string[],currentToken: string) => async (dispatch:AppDispatch) => {
+  try {
+    const options = {
+      method: 'POST',
+      headers: {
+        Authorization: `Token ${currentToken}`,
+        accept: 'application/json',
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: {
+        "article": {
+            "title": `${data.nameOfArticle}`,
+            "description": `${data.decriptionOfAritcle}`,
+            "body": `${data.textOfAritcle}`,
+            "tagList": tags
+     }
+    },
+  }
   
+  await axios.post<ICurrentSlug>(`https://blog.kata.academy/api/articles/`,options.body,options);
+  dispatch(AritcleSlice.actions.createAritcleSucsess())
+  setTimeout(() => {
+    dispatch(AritcleSlice.actions.createAritcleClose())
+  },2000)
+  }
+  catch (e:any) {
+   console.log(e)
+  }
+}
+export const deleteArticle = (currentSlug:string,currentToken: string) => async (dispatch:AppDispatch) => {
+ try {
+  const options = {
+    method: 'DELETE',
+    headers: {
+      Authorization: `Token ${currentToken}`,
+      accept: 'application/json',
+      'Content-Type': 'application/json;charset=utf-8',
+    },
+}
+  await axios.delete(`https://blog.kata.academy/api/articles/${currentSlug}`,options)
+  dispatch(AritcleSlice.actions.setDeleteStatus());
+  setTimeout(() => {
+    dispatch(AritcleSlice.actions.unDeleteStatus())
+  },2000)
+ }
+ catch(e:any) {
+  console.log(e)
+ }
+}
+
+export const EditCurrentArticle = (data: IFormInput, slug : string,tags : string[],currentToken: string) => async (dispatch:AppDispatch) => {
+  try {
+    const options = {
+      method: 'PUT',
+      headers: {
+        Authorization: `Token ${currentToken}`,
+        accept: 'application/json',
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: {
+        "article": {
+            "title": `${data.nameOfArticle}`,
+            "description": `${data.decriptionOfAritcle}`,
+            "body": `${data.textOfAritcle}`,
+            "tagList": tags
+     }
+    },
+  }
   
+  await axios.put<ICurrentSlug>(`https://blog.kata.academy/api/articles/${slug}`,options.body,options);
+  dispatch(AritcleSlice.actions.setEditStatus())
+  setTimeout(() => {
+    dispatch(AritcleSlice.actions.unEditStatus())
+  },2000)
+  }
+  catch (e:any) {
+   console.log(e)
+  }
 }

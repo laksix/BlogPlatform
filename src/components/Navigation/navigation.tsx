@@ -12,7 +12,7 @@ const Navigation = () => {
             <div className={clasess['title-name']}><Link className={clasess['title-name']} to = '/articles'>Realworld Blog</Link></div>
             {isAuth ? 
             <div className={clasess.isAuth}>
-                <div className={clasess.createPost}>Create article</div>
+                <Link className={clasess.createPost} to = '/new-article'>Create article</Link>
                     
                     <Link className={clasess.profile} to = '/profile'>
                     <div className={clasess.profileName}>{nameOfProfile.length > 10? `${nameOfProfile.slice(0,10)}...` : nameOfProfile}</div>

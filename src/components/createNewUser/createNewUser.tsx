@@ -12,6 +12,10 @@ export interface IFormInput {
     checkbox:boolean,
     url: string;
     example: string;
+    nameOfArticle: string;
+    decriptionOfAritcle: string;
+    textOfAritcle: string;
+    tagsList: string[]
   }
 
 const CreateNewUser = () => {

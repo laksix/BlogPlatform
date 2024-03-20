@@ -4,19 +4,23 @@ import { ISlug } from '../models/Slug'
 import { format } from "date-fns";
 import {Link} from 'react-router-dom'
 import {AritcleSlice} from '../store/reducers/AritcleSlice';
-import { useAppDispatch } from '../hooks/redux';
+import { useAppDispatch,} from '../hooks/redux';
+
 
 interface postsProps {
     posts: ISlug
 }
 const ArticlesItem = ({posts} : postsProps) => {
     const dispatch = useAppDispatch()
+   
+    
     return (
         <li className={clasess.articleItem}>
             <div className={clasess.slugInfo}>
                 <div className={clasess.slugTitle}>
                 <div className={clasess.slugName} onClick={() => {
                     dispatch(AritcleSlice.actions.articleSetCurrentSlug(posts.slug))
+                    dispatch(AritcleSlice.actions.articleSetCurrentTagsList(posts.tagList))
                     localStorage.setItem('slug',posts.slug)
                 }}><Link className={clasess.slugName}  to ={`/articles/${posts.slug}`} >{posts.title}</Link></div>
                 <div className={clasess.slugLikes}><img src={img} className={clasess.imgLikes}/><div className={clasess['slugLikes-count']}>12</div></div>

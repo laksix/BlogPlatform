@@ -10,13 +10,21 @@ export interface IinitialState {
   totalPages: number
   currentPage: number
   currentSlug : string
-  currentArticle: ISlug
+  currentArticle: ISlug,
+  createFinal : boolean,
+  owner : boolean
+  statusDelete: boolean
+  articleEditStatus: boolean
 
 }
 
 const initialState: IinitialState = {
   articles: [],
+  articleEditStatus: false,
+  statusDelete: false,
   loading:true,
+  owner: false,
+  createFinal: false,
   error: '',
   totalPages: 0,
   currentPage: 1,
@@ -62,9 +70,36 @@ export const AritcleSlice = createSlice({
     articleSetCurrentSlug(state,action: PayloadAction<string>){
       state.currentSlug = action.payload
     },
+    articleSetCurrentTagsList(state,action: PayloadAction<string[]>){
+      state.currentArticle.tagList = action.payload
+    },
     currentArticleFetch(state, action: PayloadAction<ISlug>){
       state.currentArticle = action.payload
       state.loading = false
+    },
+    createAritcleSucsess(state) {
+     state.createFinal = true
+    },
+    createAritcleClose(state) {
+      state.createFinal = false
+    },
+    setOwnerStatus(state) {
+      state.owner = true
+    },
+    unOwner(state) {
+      state.owner = false
+    },
+    setDeleteStatus (state) {
+      state.statusDelete = true
+    },
+    unDeleteStatus(state) {
+      state.statusDelete = false
+    },
+    setEditStatus(state) {
+      state.articleEditStatus = true
+    },
+    unEditStatus(state) {
+      state.articleEditStatus = false
     }
 
   },

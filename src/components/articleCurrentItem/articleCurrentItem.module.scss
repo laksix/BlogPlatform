@@ -122,3 +122,38 @@
 .mainText {
     margin-left:15px
 }
+.buttonsEdit {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    gap: 20px;
+    
+}
+.buttonDelete {
+    border: 1px solid #F5222D;
+    padding: 10px;
+    color: #F5222D;
+    cursor: pointer;
+
+}
+.buttonDelete:hover{
+    color:#FFFFFF;
+    background-color: #F5222D;
+}
+.buttonEdit {
+    border: 1px solid #52C41A;
+    padding: 5px 10px 5px 10px;
+    color: #52C41A;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none;
+    text-decoration-color: #FFFFFF;
+}
+.buttonEdit:hover{
+    background-color: #52C41A;
+    color:#FFFFFF
+}
+.buttonEditText {
+    text-decoration: none;
+    color: #FFFFFF;
+}

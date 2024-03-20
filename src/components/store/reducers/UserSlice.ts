@@ -10,11 +10,12 @@ export interface IinitialState {
   errors: IErrors
   isAuth: boolean,
   errorMessage: string
+  editProfile:boolean
 
 }
 
 const initialState: IinitialState = {
-  
+  editProfile: false,
   currentUser: {
     email: '',
     token: '',
@@ -62,6 +63,12 @@ export const UserSlice = createSlice({
     state.errors.username = action.payload.errors.username;
     state.errors.email = action.payload.errors.email
     
+   },
+   userEditComplete(state){
+    state.editProfile = true
+   },
+   userEditClose (state) {
+    state.editProfile = false
    },
    fetchLoginError (state) {
     state.errorMessage = 'Пароль или e-mail неверны'

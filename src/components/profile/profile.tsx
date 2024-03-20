@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { updateUser } from '../store/reducers/ActionCreators';
 import { IFormInput } from '../createNewUser/createNewUser';
 import { useAppDispatch, useAppSelector } from '../hooks/redux';
+import { Alert } from 'antd';
 
 
 const Profile = () => {
@@ -21,8 +22,16 @@ const Profile = () => {
       };
       const currentErrors = useAppSelector(state => state.UserSlice.errors)
     const defaultUserInfo = useAppSelector(state => state.UserSlice.currentUser)
+    const completeEdit = useAppSelector(state => state.UserSlice.editProfile)
     return (
         <div className={clasess.box}>
+          {completeEdit ? <Alert
+          className={clasess.alertMessage}
+      message="Изменение данных"
+      description="Данные успешно изменены."
+      type="success"
+      showIcon
+    /> : null}
         <div className={clasess.mainBox}>
          <div className={clasess.title}>Edit Profile</div>
           <div className={clasess['mainBox-inputs']}>
